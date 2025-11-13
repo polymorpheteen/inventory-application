@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <%- include('partials/header') %>
+
+            <main>
+                <h2>Recent Releases</h2>
+
+                <div class="album-grid">
+                    <% albums.forEach(album=> { %>
+                        <div class="album-card">
+                            <img src="<%= album.cover_url %>" alt="<%= album.title %>">
+                            <h3>
+                                <%= album.title %>
+                            </h3>
+                            <p>
+                                <%= album.artist_name %>
+                            </p>
+                            <small>
+                                <%= album.release_year %>
+                            </small>
+                        </div>
+                        <% }); %>
+                </div>
+            </main>
+
+    </div>
+
+</body>
+
+</html>
