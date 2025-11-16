@@ -11,7 +11,6 @@ async function getRecentAlbums(req, res) {
             `);
 
     let albums = result.rows;
-    albums = albums.sort(() => Math.random() - 0.5);
 
     res.render("dashboard", { title: "Dashboard", albums });
   } catch (err) {

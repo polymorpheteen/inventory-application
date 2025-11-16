@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>
         <%= title %>
     </title>
@@ -19,16 +20,18 @@
                 <div class="album-grid">
                     <% albums.forEach(album=> { %>
                         <div class="album-card">
-                            <img src="<%= album.cover_url %>" alt="<%= album.title %>">
-                            <h3>
-                                <%= album.title %>
-                            </h3>
-                            <p>
-                                <%= album.artist_name %>
-                            </p>
-                            <small>
-                                <%= album.release_year %>
-                            </small>
+                            <a href="/albums/<%= album.album_id %>"><img src="<%= album.cover_url %>"
+                                    alt="<%= album.title %>">
+                                <h3>
+                                    <%= album.title %>
+                                </h3>
+                                <p>
+                                    <%= album.artist_name %>
+                                </p>
+                                <small>
+                                    <%= album.release_year %>
+                                </small>
+                            </a>
                         </div>
                         <% }); %>
                 </div>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <%- include('partials/header'); %>
+
+            <main>
+
+                <section class="genre-header">
+                    <h1>
+                        <%= genre.name %>
+                    </h1>
+                    <p class="genre-description">
+                        Browse all albums under the <strong>
+                            <%= genre.name %>
+                        </strong> category.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Albums</h2>
+
+                    <% if (albums.length===0) { %>
+                        <p class="empty-message">No albums found for this genre.</p>
+                        <% } else { %>
+
+                            <div class="album-grid">
+
+                                <% albums.forEach(album=> { %>
+                                    <div class="album-card">
+                                        <a href="/albums/<%= album.album_id %>">
+                                            <img src="<%= album.cover_url %>" alt="<%= album.title %>">
+
+                                            <h3>
+                                                <%= album.title %>
+                                            </h3>
+
+                                            <p class="artist-name">
+                                                <%= album.artist_name %>
+                                            </p>
+
+                                            <small class="album-year">
+                                                <%= album.release_year %>
+                                            </small>
+                                        </a>
+                                    </div>
+                                    <% }) %>
+
+                            </div>
+
+                            <% } %>
+                </section>
+
+            </main>
+
+    </div>
+
+</body>
+
+</html>

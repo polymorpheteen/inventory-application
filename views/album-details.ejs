@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <%- include('partials/header') %>
+
+            <main>
+                <h2>
+                    <%= album.title %>
+                </h2>
+
+                <div class="album-grid">
+                    <div class="album-header">
+                        <img src="<%= album.cover_url %>" alt="<%= album.title %>">
+                        <h3>
+                            <%= album.title %>
+                        </h3>
+                    </div>
+                    <div class="tracks-grid">
+                        <ul>
+                            <% tracks.forEach(track=> { %>
+                                <li>
+                                    <%= track.track_number %>
+                                        <%= track.title %>
+                                            -
+                                            <%= Math.floor(track.duration / 60) %>: <%= ("0" + (track.duration %
+                                                    60)).slice(-2) %>
+                                </li>
+                                <% }) %>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+    </div>
+
+</body>
+
+</html>

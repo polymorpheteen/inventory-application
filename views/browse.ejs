@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <%- include('partials/header') %>
+
+            <main>
+                <h2>Browse Genres</h2>
+
+                <div class="genre-grid">
+                    <% genres.forEach(genre=> { %>
+                        <div class="genre-card">
+                            <a href="/genres/<%= genre.genre_id %>">
+                                <h3>
+                                    <%= genre.name %>
+                                </h3>
+                            </a>
+                        </div>
+                        <% }) %>
+                </div>
+            </main>
+    </div>
+
+</body>
+
+</html>

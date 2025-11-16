@@ -1,0 +1,33 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+    gap: 2rem;
+}
+
+.nav-list li {
+    list-style-type: none;
+}
+
+main {
+    padding: 0.5rem 2rem;
+}
+
+.album-grid {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}

@@ -5,13 +5,16 @@ const app = express();
 
 const albumRouter = require("./routes/albumRouter");
 const dashboardRouter = require("./routes/dashboardRouter");
+const genreRouter = require("./routes/genreRouter");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
 app.use("/", dashboardRouter);
-app.use("/album", albumRouter);
+app.use("/albums", albumRouter);
+app.use("/genres", genreRouter);
 
 const PORT = 3000;
 app.listen(PORT, (error) => {

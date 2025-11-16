@@ -11,4 +11,4 @@ async function updateAlbumCover(albumId, artist, albumTitle) {
 }
 
 // Run the function
-updateAlbumCover(1, "The Weeknd", "House of Balloons");
+updateAlbumCover(2, "Blood Orange", "Coastal Grooves");
