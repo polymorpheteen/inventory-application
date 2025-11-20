@@ -11,4 +11,4 @@ async function updateAlbumCover(albumId, artist, albumTitle) {
 }
 
 // Run the function
-updateAlbumCover(2, "Blood Orange", "Coastal Grooves");
+updateAlbumCover(3, "Kendrick Lamar", "good kid, m.A.A.d city");

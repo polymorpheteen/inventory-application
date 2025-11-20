@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <%- include('partials/header'); %>
+
+            <main>
+                <h2>Search</h2>
+
+                <form action="/search/results" method="get" class="search-form">
+                    <input type="text" name="q" placeholder="Search for albums or artists ..." value="<%= query %>"
+                        required>
+                </form>
+
+                <section>
+                    <% if (results.length> 0) { %>
+                        <h2>Results for "<%= query %>"</h2>
+                        <div class="album-grid">
+                            <% results.forEach(item=> { %>
+                                <div class="album-card">
+                                    <a href="/albums/<%= item.album_id %>">
+                                        <img src="<%= item.cover_url %>" alt="<%= item.album_title %>">
+                                        <h3>
+                                            <%= item.album_title %>
+                                        </h3>
+                                        <p>
+                                            <%= item.artist_name %>
+                                        </p>
+                                    </a>
+                                </div>
+                                <% }) %>
+                        </div>
+                        <% } else if (query) { %>
+                            <p>No results found for "<%= query %>"</p>
+                            <% } %>
+                </section>
+            </main>
+
+    </div>
+
+
+</body>
+
+</html>
