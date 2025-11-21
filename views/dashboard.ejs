@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>
         <%= title %>
     </title>
@@ -15,6 +17,13 @@
         <%- include('partials/header') %>
 
             <main>
+                <section class="hero">
+                    <div class="hero-content">
+                        <h1>Welcome to My Music Library</h1>
+                        <p>Explore albums, artists, and more.</p>
+                    </div>
+                </section>
+
                 <h2>Recent Releases</h2>
 
                 <div class="album-grid">
@@ -28,9 +37,9 @@
                                 <p>
                                     <%= album.artist_name %>
                                 </p>
-                                <small>
+                                <p>
                                     <%= album.release_year %>
-                                </small>
+                                </p>
                             </a>
                         </div>
                         <% }); %>

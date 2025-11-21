@@ -1,0 +1,89 @@
+:root {
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+
+    --background-color: #262524;
+    --text-color: #ddddf2;
+}
+
+@supports (font-variation-settings: normal) {
+    :root {
+        font-family: InterVariable, sans-serif;
+    }
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+p {
+    font-size: 0.9rem;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+    gap: 2rem;
+}
+
+.nav-list li {
+    list-style-type: none;
+}
+
+.album-grid {
+    padding: 2rem 2rem;
+}
+
+.album-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.album-header h2 {
+    font-size: 2rem;
+}
+
+.tracks-grid {
+    padding-top: 2rem;
+}
