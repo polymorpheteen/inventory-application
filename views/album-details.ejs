@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/album-details.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>
         <%= title %>
     </title>
@@ -24,17 +27,31 @@
                     </div>
 
                     <div class="tracks-grid">
-                        <ul>
+                        <div class="tracks-list">
                             <% tracks.forEach(track=> { %>
-                                <li>
-                                    <%= track.track_number %>
-                                        <%= track.title %>
-                                            -
-                                            <%= Math.floor(track.duration / 60) %>: <%= ("0" + (track.duration %
-                                                    60)).slice(-2) %>
-                                </li>
+                                <div class="track-row">
+                                    <div class="track-number">
+                                        <%= track.track_number %>
+                                    </div>
+
+                                    <div class="track-info">
+                                        <span class="track-title">
+                                            <%= track.title %>
+                                        </span>
+                                    </div>
+
+                                    <div class="track-album">
+                                        <%= album.title %>
+                                    </div>
+
+                                    <div class="track-duration">
+                                        <%= Math.floor(track.duration / 60) %>: <%= ("0" + (track.duration %
+                                                60)).slice(-2) %>
+                                    </div>
+
+                                </div>
                                 <% }) %>
-                        </ul>
+                        </div>
                     </div>
                 </div>
             </main>
