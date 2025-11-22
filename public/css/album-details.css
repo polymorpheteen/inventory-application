@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 :root {
     font-family: Inter, sans-serif;
     font-feature-settings: 'liga' 1, 'calt' 1;
@@ -15,7 +21,6 @@
 body {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
     background-color: var(--background-color);
     color: var(--text-color);
 }
@@ -31,13 +36,9 @@ p {
     font-size: 0.9rem;
 }
 
-ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
+ul,
 li {
+    list-style: none;
     margin: 0;
     padding: 0;
 }
@@ -60,15 +61,18 @@ main {
 }
 
 .album-grid {
-    padding: 4rem 2rem;
+    padding: 4rem 3rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 6rem;
+    align-items: flex-start;
+    gap: 4rem;
+}
+
+.album-header {
+    flex-shrink: 0;
 }
 
 .album-header img {
-    width: 415px;
+    width: 400px;
     border-radius: 8px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
@@ -77,11 +81,12 @@ main {
     width: 100%;
     display: flex;
     flex-direction: column;
+    padding: 0 1rem;
 }
 
 .track-row {
     display: grid;
-    grid-template-columns: 40px 1.5fr 1.5fr 60px;
+    grid-template-columns: 40px minmax(0, 2fr) minmax(140px, 1fr) 60px;
     align-items: center;
     color: #8e8e98;
     padding: 12px 16px;
@@ -90,9 +95,20 @@ main {
     column-gap: 1rem;
 }
 
+.track-info {
+    overflow: hidden;
+}
+
 .track-row:hover {
     background: #2c2b2a;
     color: var(--text-color);
+}
+
+.track-title,
+.track-artist {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .track-title {

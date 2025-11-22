@@ -26,32 +26,30 @@
                         </h2>
                     </div>
 
-                    <div class="tracks-grid">
-                        <div class="tracks-list">
-                            <% tracks.forEach(track=> { %>
-                                <div class="track-row">
-                                    <div class="track-number">
-                                        <%= track.track_number %>
-                                    </div>
-
-                                    <div class="track-info">
-                                        <span class="track-title">
-                                            <%= track.title %>
-                                        </span>
-                                    </div>
-
-                                    <div class="track-album">
-                                        <%= album.title %>
-                                    </div>
-
-                                    <div class="track-duration">
-                                        <%= Math.floor(track.duration / 60) %>: <%= ("0" + (track.duration %
-                                                60)).slice(-2) %>
-                                    </div>
-
+                    <div class="tracks-list">
+                        <% tracks.forEach(track=> { %>
+                            <div class="track-row">
+                                <div class="track-number">
+                                    <%= track.track_number %>
                                 </div>
-                                <% }) %>
-                        </div>
+
+                                <div class="track-info">
+                                    <span class="track-title">
+                                        <%= track.title %>
+                                    </span>
+                                </div>
+
+                                <div class="track-album">
+                                    <%= album.title %>
+                                </div>
+
+                                <div class="track-duration">
+                                    <%= Math.floor(track.duration / 60) %>:<%= ("0" + (track.duration % 60)).slice(-2)
+                                            %>
+                                </div>
+
+                            </div>
+                            <% }) %>
                     </div>
                 </div>
             </main>

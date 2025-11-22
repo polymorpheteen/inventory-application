@@ -1,0 +1,93 @@
+:root {
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+
+    --background-color: #262524;
+    --text-color: #ddddf2;
+}
+
+@supports (font-variation-settings: normal) {
+    :root {
+        font-family: InterVariable, sans-serif;
+    }
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+p {
+    font-size: 0.9rem;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+main {
+    margin-top: 3rem;
+    padding: 1.5rem 2rem;
+}
+
+.genre-grid {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.genre-card {
+    border-radius: 30px;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #151514;
+    transition: background 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.genre-card a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.genre-card a:hover {
+    text-decoration: none;
+}
+
+.genre-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.genre-card:hover {
+    background: #353432;
+    transform: translateY(-4px);
+}
