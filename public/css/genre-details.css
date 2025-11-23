@@ -53,4 +53,27 @@ a:hover {
 
 main {
     margin-top: 3rem;
+    padding: 0 2rem;
+}
+
+.genre-header {
+    padding: 1.5rem 0;
+}
+
+.genre-header p {
+    padding-top: 0.6rem;
+    font-size: 1.1rem;
+}
+
+.result-grid h2 {
+    padding-bottom: 0.6rem;
+}
+
+.album-grid {
+    display: flex;
+    gap: 2rem;
+}
+
+img {
+    border-radius: 8px;
 }

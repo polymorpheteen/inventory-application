@@ -65,7 +65,7 @@ main {
 
 .genre-card {
     border-radius: 30px;
-    padding: 1.5rem;
+    padding: 1.1rem;
     text-align: center;
     background-color: #151514;
     transition: background 0.2s ease, transform 0.2s ease;

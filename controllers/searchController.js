@@ -1,9 +1,5 @@
 const pool = require("../db/pool");
 
-function getSearch(req, res) {
-  res.render("search", { title: "Search", results: [], query: "" });
-}
-
 async function getSearchQuery(req, res) {
   const query = req.query.q;
 
@@ -37,4 +33,4 @@ async function getSearchQuery(req, res) {
   }
 }
 
-module.exports = { getSearch, getSearchQuery };
+module.exports = { getSearchQuery };
