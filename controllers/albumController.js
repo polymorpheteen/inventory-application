@@ -13,7 +13,12 @@ async function getAlbum(req, res) {
     );
 
     const albumResult = await pool.query(
-      `SELECT * FROM albums WHERE album_id = $1`,
+      `SELECT 
+      albums.*,
+      artists.name AS artist_name
+      FROM albums
+      JOIN artists ON albums.artist_id = artists.artist_id 
+      WHERE album_id = $1`,
       [albumId]
     );
 
