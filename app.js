@@ -8,6 +8,9 @@ const dashboardRouter = require("./routes/dashboardRouter");
 const genreRouter = require("./routes/genreRouter");
 const searchRouter = require("./routes/searchRouter");
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 

@@ -6,7 +6,7 @@
     <title>
         <%= title %>
     </title>
-    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/create-album.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -14,39 +14,49 @@
 
 <body>
     <div class="wrapper">
-        <%- include('../partials/header') %>
+        <%- include('partials/header') %>
 
             <main>
                 <h2>Add New Album</h2>
 
                 <form action="/album/new" method="post" class="album-form">
 
-                    <label>Album Title</label>
-                    <input type="text" name="title" required>
+                    <div class="input-field">
+                        <label>Album Title</label>
+                        <input type="text" name="title" required>
+                    </div>
 
-                    <label>Artist</label>
-                    <select name="artist_id" required>
-                        <% artists.forEach(artist=> { %>
-                            <option value="<%= artist.artist_id %>">
-                                <%= artist.name %>
-                            </option>
-                            <% }) %>
-                    </select>
+                    <div class="input-field">
+                        <label>Artist</label>
+                        <select name="artist_id" required>
+                            <% artists.forEach(artist=> { %>
+                                <option value="<%= artist.artist_id %>">
+                                    <%= artist.name %>
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
 
-                    <label>Genre</label>
-                    <select name="genre_id" required>
-                        <% genres.forEach(genre=> { %>
-                            <option value="<%= genre.genre_id %>">
-                                <%= genre.name %>
-                            </option>
-                            <% }) %>
-                    </select>
+                    <div class="input-field">
+                        <label>Genre</label>
+                        <select name="genre_id" required>
+                            <% genres.forEach(genre=> { %>
+                                <option value="<%= genre.genre_id %>">
+                                    <%= genre.name %>
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
 
-                    <label>Release Year</label>
-                    <input type="number" name="release_year">
+                    <div class="input-field">
+                        <label>Release Year</label>
+                        <input type="number" name="release_year">
+                    </div>
 
-                    <label>Cover URL</label>
-                    <input type="text" name="cover_url">
+                    <div class="input-field">
+                        <label>Passphrase</label>
+                        <input type="password" name="passphrase" required>
+                    </div>
 
                     <button type="submit">Create Album</button>
                 </form>

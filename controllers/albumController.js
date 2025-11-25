@@ -60,12 +60,28 @@ async function showCreateAlbumForm(req, res) {
 }
 
 async function createAlbum(req, res) {
-  const { title, artist_id, genre_id, release_year } = req.body;
+  const { title, artist_id, genre_id, release_year, passphrase } = req.body;
+
+  const SECRET_PASSPHRASE = process.env.ALBUM_PASSPHRASE;
+
+  if (passphrase !== SECRET_PASSPHRASE) {
+    return res.status(403).send("Invalid passphrase. Album not created.");
+  }
 
   try {
+    const check = await pool.query(
+      "SELECT * FROM albums WHERE title = $1 AND artist_id = $2",
+      [title, artist_id]
+    );
+
+    if (check.rows.length > 0) {
+      return res.status(400).send("This album already exists for this artist.");
+    }
+
     const result = await pool.query(
       `INSERT INTO albums (title, artist_id, genre_id, release_year)
-      VALUES ($1, $2, $3, $4)`,
+      VALUES ($1, $2, $3, $4)
+      RETURNING album_id`,
       [title, artist_id, genre_id, release_year]
     );
 
@@ -78,9 +94,9 @@ async function createAlbum(req, res) {
 
     const artistName = artistResult.rows[0].name;
 
-    updateAlbumCover(newAlbumId, artistName, title);
+    await updateAlbumCover(newAlbumId, artistName, title);
 
-    res.redirect("/dasboard");
+    res.redirect("/dashboard");
   } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");

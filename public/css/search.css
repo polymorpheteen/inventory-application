@@ -64,3 +64,8 @@ img {
     border-radius: 8px;
 
 }
+
+.album-grid {
+    display: flex;
+    gap: 2rem;
+}

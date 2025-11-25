@@ -27,13 +27,16 @@
                         <div class="album-grid">
                             <% results.forEach(item=> { %>
                                 <div class="album-card">
-                                    <a href="/albums/<%= item.album_id %>">
+                                    <a href="/album/<%= item.album_id %>">
                                         <img src="<%= item.cover_url %>" alt="<%= item.album_title %>">
                                         <h3>
                                             <%= item.album_title %>
                                         </h3>
                                         <p>
                                             <%= item.artist_name %>
+                                        </p>
+                                        <p>
+                                            <%= item.release_year %>
                                         </p>
                                     </a>
                                 </div>

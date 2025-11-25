@@ -1,6 +1,6 @@
 require("dotenv").config(); // load API key
-const { getCoverUrl } = require("./services/lastfm");
-const { updateCoverUrl } = require("./db/queries");
+const { getCoverUrl } = require("./lastfm");
+const { updateCoverUrl } = require("../db/queries");
 
 /**
  * Fetches the album cover from Last.fm and updates the database.

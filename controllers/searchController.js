@@ -12,6 +12,7 @@ async function getSearchQuery(req, res) {
       `
             SELECT 
                 albums.album_id,
+                albums.release_year,
                 albums.title AS album_title,
                 artists.name AS artist_name,
                 albums.cover_url

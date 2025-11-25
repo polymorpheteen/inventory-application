@@ -7,7 +7,7 @@ async function getRecentAlbums(req, res) {
             FROM albums
             JOIN artists ON albums.artist_id = artists.artist_id
             ORDER BY release_year DESC
-            LIMIT 10; 
+            LIMIT 6; 
             `);
 
     let albums = result.rows;
