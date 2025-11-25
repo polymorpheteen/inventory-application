@@ -14,7 +14,7 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", dashboardRouter);
-app.use("/albums", albumRouter);
+app.use("/album", albumRouter);
 app.use("/genres", genreRouter);
 app.use("/search", searchRouter);
 

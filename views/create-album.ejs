@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <%- include('../partials/header') %>
+
+            <main>
+                <h2>Add New Album</h2>
+
+                <form action="/album/new" method="post" class="album-form">
+
+                    <label>Album Title</label>
+                    <input type="text" name="title" required>
+
+                    <label>Artist</label>
+                    <select name="artist_id" required>
+                        <% artists.forEach(artist=> { %>
+                            <option value="<%= artist.artist_id %>">
+                                <%= artist.name %>
+                            </option>
+                            <% }) %>
+                    </select>
+
+                    <label>Genre</label>
+                    <select name="genre_id" required>
+                        <% genres.forEach(genre=> { %>
+                            <option value="<%= genre.genre_id %>">
+                                <%= genre.name %>
+                            </option>
+                            <% }) %>
+                    </select>
+
+                    <label>Release Year</label>
+                    <input type="number" name="release_year">
+
+                    <label>Cover URL</label>
+                    <input type="text" name="cover_url">
+
+                    <button type="submit">Create Album</button>
+                </form>
+            </main>
+    </div>
+</body>
+
+</html>

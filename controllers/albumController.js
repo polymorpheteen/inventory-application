@@ -1,4 +1,5 @@
 const pool = require("../db/pool");
+const { updateAlbumCover } = require("../services/updateCover");
 
 async function getAlbum(req, res) {
   const { albumId } = req.params;
@@ -39,4 +40,51 @@ async function getAlbum(req, res) {
   }
 }
 
-module.exports = { getAlbum };
+async function showCreateAlbumForm(req, res) {
+  try {
+    const artists = await pool.query(
+      "SELECT artist_id, name FROM artists ORDER BY name"
+    );
+
+    const genres = await pool.query("SELECT * FROM genres ORDER BY name");
+
+    res.render("create-album", {
+      title: "Add New Album",
+      artists: artists.rows,
+      genres: genres.rows,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+}
+
+async function createAlbum(req, res) {
+  const { title, artist_id, genre_id, release_year } = req.body;
+
+  try {
+    const result = await pool.query(
+      `INSERT INTO albums (title, artist_id, genre_id, release_year)
+      VALUES ($1, $2, $3, $4)`,
+      [title, artist_id, genre_id, release_year]
+    );
+
+    const newAlbumId = result.rows[0].album_id;
+
+    const artistResult = await pool.query(
+      "SELECT name FROM artists WHERE artist_id = $1",
+      [artist_id]
+    );
+
+    const artistName = artistResult.rows[0].name;
+
+    updateAlbumCover(newAlbumId, artistName, title);
+
+    res.redirect("/dasboard");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
+}
+
+module.exports = { getAlbum, showCreateAlbumForm, createAlbum };
