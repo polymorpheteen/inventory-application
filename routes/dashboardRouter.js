@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const getRecentAlbums = require("../controllers/dashboardController");
-const pool = require("../db");
+const pool = require("../db/pool");
 
 const dashboardRouter = Router();
 
