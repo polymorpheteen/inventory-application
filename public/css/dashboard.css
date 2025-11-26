@@ -88,7 +88,7 @@ main h2 {
 .album-grid {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 2rem;
     padding: 0.75rem 2rem;
 }
 
