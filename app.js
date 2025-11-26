@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require("express");
 const path = require("node:path");
 const app = express();
@@ -21,10 +20,12 @@ app.use("/album", albumRouter);
 app.use("/genres", genreRouter);
 app.use("/search", searchRouter);
 
-const PORT = 3000;
-app.listen(PORT, (error) => {
-  if (error) {
-    throw error;
-  }
-  console.log(`The server is listening on http://localhost:${PORT}`);
-});
+// const PORT = 3000;
+// app.listen(PORT, (error) => {
+//   if (error) {
+//     throw error;
+//   }
+//   console.log(`The server is listening on http://localhost:${PORT}`);
+// });
+
+module.exports = app;
