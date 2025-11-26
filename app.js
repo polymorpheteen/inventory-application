@@ -20,12 +20,12 @@ app.use("/album", albumRouter);
 app.use("/genres", genreRouter);
 app.use("/search", searchRouter);
 
-// const PORT = 3000;
-// app.listen(PORT, (error) => {
-//   if (error) {
-//     throw error;
-//   }
-//   console.log(`The server is listening on http://localhost:${PORT}`);
-// });
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, (error) => {
+  if (error) {
+    throw error;
+  }
+  console.log(`The server is listening on http://localhost:${PORT}`);
+});
 
 module.exports = app;
