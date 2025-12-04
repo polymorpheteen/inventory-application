@@ -45,6 +45,30 @@
                         </div>
                         <% }); %>
                 </div>
+                <% for (let genre in albumsByGenre) { %>
+                    <h2>
+                        <%= genre %>
+                    </h2>
+                    <div class="album-grid">
+                        <% albumsByGenre[genre].forEach(album=> { %>
+                            <div class="album-card">
+                                <a href="/album/<%= album.album_id %>">
+                                    <img src="<%= album.cover_url %>" alt="<%= album.title %>">
+                                    <h3>
+                                        <%= album.title %>
+                                    </h3>
+                                    <p>
+                                        <%= album.artist_name %>
+                                    </p>
+                                    <p>
+                                        <%= album.release_year %>
+                                    </p>
+                                </a>
+                            </div>
+                            <% }) %>
+                    </div>
+                    <% } %>
+
             </main>
 
     </div>
