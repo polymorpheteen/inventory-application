@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'DeFonte';
+    src: url('/fonts/DeFonte reduced Normale.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -22,6 +29,11 @@ header {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
+header h1 {
+    font-family: 'DeFonte', sans-serif;
+    font-size: 2.25rem;
+}
+
 a {
     color: var(--text-color);
     text-decoration: none;
@@ -40,7 +52,7 @@ h1 a:hover {
     justify-content: center;
     align-items: center;
     padding: 0 1rem;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .nav-list li {
