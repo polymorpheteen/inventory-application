@@ -45,7 +45,7 @@ main h2 {
 }
 
 .hero {
-    height: 60vh;
+    height: 50vh;
     position: relative;
     background-image: url(/images/hero.jpg);
     background-size: cover;
